@@ -78,7 +78,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	if m.Content == "!help" {
 		embed := &discordgo.MessageEmbed{
-			Title:       "WiNGPSAN Thera Bot Commands",
+			Title:       "WiNGSPAN Thera Bot Commands",
 			Description: "Here are the commands you can use, and some questions you may have that have been answered.",
 			Color:       0xFFA500, // Your brand's orange color
 			Fields: []*discordgo.MessageEmbedField{
@@ -118,7 +118,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 				{
 					Name:   "I want new features, what do?",
-					Value:  "Sure, go post your ideas on my GitHub. I’ll read them, nod, and then ignore you https://github.com/ScotDex.",
+					Value:  "Sure, go post your ideas on my GitHub. I’ll read them, nod, and then ignore you https://github.com/ScotDex/TheraBot.",
 					Inline: false,
 				},
 			},
@@ -147,7 +147,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			Fields:      []*discordgo.MessageEmbedField{}, // Initialize the fields slice
 			Timestamp:   time.Now().Format(time.RFC3339),  // Adds a timestamp to the footer
 			Footer: &discordgo.MessageEmbedFooter{
-				Text: "WiNGPSAN Thera Bot | Powered by EVE Scout API ",
+				Text: "WiNGSPAN Thera Bot | Powered by EVE Scout API ",
 			},
 		}
 
@@ -199,7 +199,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			Fields:      []*discordgo.MessageEmbedField{}, // Initialize the fields slice
 			Timestamp:   time.Now().Format(time.RFC3339),  // Adds a timestamp to the footer
 			Footer: &discordgo.MessageEmbedFooter{
-				Text: "WiNGPSAN Thera Bot | Powered by EVE Scout API ",
+				Text: "WiNGSPAN Thera Bot | Powered by EVE Scout API ",
 			},
 		}
 
@@ -252,7 +252,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			Fields:      []*discordgo.MessageEmbedField{}, // Initialize the fields slice
 			Timestamp:   time.Now().Format(time.RFC3339),  // Adds a timestamp to the footer
 			Footer: &discordgo.MessageEmbedFooter{
-				Text: "WiNGPSAN Thera Bot | Powered by EVE Scout API ",
+				Text: "WiNGSPAN Thera Bot | Powered by EVE Scout API ",
 			},
 		}
 
