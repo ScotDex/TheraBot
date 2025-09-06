@@ -5,6 +5,9 @@ A simple, efficient Discord bot written in Go that monitors the EVE Scout API fo
 
 This project was built as a practical learning exercise in Go, covering API interaction, concurrency with goroutines, and Discord bot development.
 
+Deployment Steps - https://github.com/ScotDex/TheraBot/wiki/Deployment
+Visuals - https://github.com/ScotDex/TheraBot/wiki/Gallery
+
 ***
 
 ## ✨ Features
