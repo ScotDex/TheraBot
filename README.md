@@ -7,6 +7,7 @@ This project was built as a practical learning exercise in Go, covering API inte
 
 Deployment Steps - https://github.com/ScotDex/TheraBot/wiki/Deployment
 Visuals - https://github.com/ScotDex/TheraBot/wiki/Gallery
+Contact - voidsparkadmin@proton.me
 
 ***
 
