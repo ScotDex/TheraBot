@@ -337,7 +337,7 @@ func StartNotifier(s *discordgo.Session, channelID string) {
 						newSig.ExpiresAt.Format("2006-01-02 15:04 MST"),
 						newSig.WhType,
 					),
-					Inline: true,
+					Inline: false,
 				})
 			}
 			// Send the embed notification to the channel

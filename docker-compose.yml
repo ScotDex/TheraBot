@@ -1,1 +1,17 @@
-# to do
+
+services:
+  thera-bot:
+    # Tells Compose to build the image from the Dockerfile in the current directory.
+    build: .
+
+    # Sets a name for the image that will be built.
+    image: wingspan/thera-bot
+
+    # This is crucial for a bot. It ensures the container restarts automatically
+    # if it crashes or if the server reboots.
+    restart: unless-stopped
+
+    # Tells Compose to load the environment variables from your .env file.
+    # This is how you securely pass your BOT_TOKEN to the bot.
+    env_file:
+      - .env
