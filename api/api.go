@@ -73,7 +73,8 @@ type Route struct {
 	Comment         string    `json:"comment"`
 }
 
-// AllRoutes fetches all routes from the EVE Scout API.
+// API Calls to fetch routes from specific systems
+
 func TurnurRoutes() ([]Route, error) {
 	resp, err := http.Get("https://api.eve-scout.com/v2/public/signatures?system_name=turnur")
 	if err != nil {

@@ -1,15 +1,5 @@
 
-# WiNGSPAN Thera Bot 🚀
 
-A simple, efficient Discord bot written in Go that monitors the EVE Scout API for new wormhole connections and provides real-time notifications. It also allows users to query for currently active routes.
-
-This project was built as a practical learning exercise in Go, covering API interaction, concurrency with goroutines, and Discord bot development.
-
-Deployment Steps - https://github.com/ScotDex/TheraBot/wiki/Deployment
-Visuals - https://github.com/ScotDex/TheraBot/wiki/Gallery
-Contact - voidsparkadmin@proton.me
-
-***
 
 ## ✨ Features
 
