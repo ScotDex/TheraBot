@@ -30,7 +30,7 @@ async function handleHelp(interaction) {
 async function handleRoutes(interaction, systemName) {
     await interaction.deferReply();
     
-    const signatures = await api.getRoutes(systemName);
+    const signatures = await api.getSignatures(systemName);
     
     if (!signatures || signatures.length === 0) {
         return interaction.editReply("No active signatures found. Space is quiet...");

@@ -17,4 +17,4 @@ COPY . .
 ENV NODE_ENV=production
 
 # Step 7: The command to run your bot
-CMD [ "node", "index.js" ]
+CMD [ "node", "src/index.js" ]
