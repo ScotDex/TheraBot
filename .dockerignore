@@ -1,0 +1,26 @@
+# 1. Dependency folders
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 2. Secret & Config files
+.env
+.env.local
+.env.example
+.gcloudignore
+
+# 3. Version control and history
+.git/
+.gitignore
+.github/
+
+# 4. OS-specific junk
+.DS_Store
+Thumbs.db
+
+# 5. Build files (Cloud Run doesn't need these inside the container)
+Dockerfile
+docker-compose.yml
+.dockerignore
+README.md
+LICENSE
