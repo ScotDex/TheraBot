@@ -41,14 +41,13 @@ async function handleRoutes(interaction, systemName) {
     const embed = new EmbedBuilder()
         .setTitle(`🛰️ Live ${titleSystem} Connections`)
         .setURL('https://www.eve-scout.com/thera/') // Link to the actual map
-        .setColor(0xFFA500) // EVE Scout Orange
+        .setColor(0xFFA500)
         .setThumbnail('https://www.eve-scout.com/images/eve-scout-logo.png')
         .setDescription(`Found **${signatures.length}** signatures.`)
         .setTimestamp()
-        .setFooter({ text: 'o7 Fly Safe • Data via EVE Scout API' });
+        .setFooter({ text: 'Data via EVE Scout API' });
 
     signatures.slice(0, 25).forEach(sig => {
-        // Convert ISO date to Unix Timestamp for Discord's dynamic timers
         const unixExpiry = Math.floor(new Date(sig.expires_at).getTime() / 1000);
         
         // Add dotlan links to the system names for utility
@@ -59,7 +58,7 @@ async function handleRoutes(interaction, systemName) {
             name: `🔹 ${sig.wh_type} | ${sig.out_system_name} ↔ ${sig.in_system_name}`,
             value: [
                 `**Routes:** ${outLink} ↔ ${inLink}`,
-                `**Signatures:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
+                `**Sigs:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
                 `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`,
             ].join('\n'),
             inline: true
