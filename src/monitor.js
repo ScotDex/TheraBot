@@ -14,7 +14,7 @@ async function startMonitor() {
 
     try {
         // 1. Log existing signatures so we don't ping them on startup
-        const initialSigs = await api.getRoutes();
+        const initialSigs = await api.getSignatures();
         initialSigs.forEach(sig => seenSigs.add(sig.id));
         console.log(`Mapped ${seenSigs.size} existing signatures.`);
 
