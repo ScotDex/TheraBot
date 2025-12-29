@@ -21,8 +21,8 @@ async function routeInteractions(interaction) {
                 break;
             default:
                 await interaction.reply({ content: "Unknown Command", ephemeral: true });
-        } // The 'try' block must end here
-    } catch (error) { // The 'catch' block starts here
+        } 
+    } catch (error) {
         console.error(`Execution Error in ${commandName}:`, error);
         if (!interaction.replied) {
             await interaction.reply({ content: "There was an error executing this command!", ephemeral: true });

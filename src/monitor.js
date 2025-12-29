@@ -6,14 +6,14 @@ const webhook = new WebhookClient({ url: process.env.WEBHOOK_URL });
 const seenSigs = new Set();
 
 async function startMonitor() {
-    console.log("🛰️ Initializing Thera Poller...");
+    console.log("Initializing Poller...");
 
     try {
         const initialSigs = await api.getSignatures();
         initialSigs.forEach(sig => seenSigs.add(sig.id));
         console.log(`Mapped ${seenSigs.size} existing signatures.`);
         setInterval(async () => {
-            console.log("Checking for new signatures...");
+            console.log("Monitoring for new signatures...");
             
             const currentSigs = await api.getSignatures();
             if (!currentSigs) return;
@@ -25,15 +25,15 @@ async function startMonitor() {
                 console.log(`Found ${newSigs.length} new signatures!`);
                 const limitedSigs = newSigs.slice(0, 25);
                 const embed = new EmbedBuilder()
-                    .setTitle("🛰️ New Wormhole Connections Detected!")
+                    .setTitle("New Signatures Scanned")
                     .setColor(0xFFA500) // Brand Orange
                     .setTimestamp();
 
                 newSigs.forEach(newSig => {
                     embed.addFields({
                         name: `Route: ${newSig.out_system_name} <-> ${newSig.in_system_name}`,
-                        value: `**Thera/Turnur Sig:** \`${newSig.out_signature}\`\n**In Sig:** \`${newSig.in_signature}\`\n**Type:** ${newSig.wh_type}`,
-                        inline: false
+                        value: `**Exit Sig:** \`${newSig.out_signature}\`\n**In Sig:** \`${newSig.in_signature}\`\n**Type:** ${newSig.wh_type}`,
+                        inline: true
                     });
                     seenSigs.add(newSig.id);
                 });

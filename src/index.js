@@ -15,7 +15,9 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds] 
 });
 
-const port = process.env.PORT || 8080; // Cloud Run injects the PORT variable
+// Left health checker in anyways
+
+const port = process.env.PORT || 8080; 
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Bot is undocked and scouting! o7');
@@ -23,9 +25,8 @@ http.createServer((req, res) => {
     console.log(`📡 Health check server listening on port ${port}`);
 });
 
-// Modern Philosophy: Respond to a specific user action (Interaction)
+
 client.on('interactionCreate', async (interaction) => {
-    // Check if the interaction is a Slash Command
     if (!interaction.isChatInputCommand()) return;
     await routeInteractions(interaction)
 });
@@ -43,6 +44,6 @@ client.login(botToken).catch(err => {
 
 process.on('SIGINT', () => {
     console.log("Shutting down the bot.");
-    client.destroy(); // Properly close the discord connection
+    client.destroy(); 
     process.exit(0);
 });
