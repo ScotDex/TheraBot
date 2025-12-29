@@ -63,7 +63,7 @@ async function handleRoutes(interaction, systemName) {
                 `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`,
                 `-------------------------------------------------------------------------`
             ].join('\n'),
-            inline: false
+            inline: true
         });
     });
 
