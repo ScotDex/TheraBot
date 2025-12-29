@@ -62,7 +62,7 @@ async function handleRoutes(interaction, systemName) {
                 `**Signatures:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
                 `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`
             ].join('\n'),
-            inline: false // False makes it look much better on mobile
+            inline: true // False makes it look much better on mobile
         });
     });
 
