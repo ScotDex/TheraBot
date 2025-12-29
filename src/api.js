@@ -24,4 +24,4 @@ async function getSignatures(system = "") {
 
 }
 
-module.exports = { checkAPIHealth, getRoutes: getSignatures };
+module.exports = { checkAPIHealth, getSignatures };
