@@ -22,7 +22,7 @@ async function startMonitor() {
         setInterval(async () => {
             console.log("Checking for new signatures...");
             
-            const currentSigs = await api.getRoutes();
+            const currentSigs = await api.getSignatures();
             if (!currentSigs) return;
 
             // Find signatures not in our 'seen' Set
