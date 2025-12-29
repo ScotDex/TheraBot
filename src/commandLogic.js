@@ -60,10 +60,10 @@ async function handleRoutes(interaction, systemName) {
             value: [
                 `**Routes:** ${outLink} ↔ ${inLink}`,
                 `**Signatures:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
-                `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`
+                `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`,
                 `-------------------------------------------------------------------------`
             ].join('\n'),
-            inline: true 
+            inline: false
         });
     });
 
