@@ -43,7 +43,7 @@ async function handleRoutes(interaction, systemName) {
         .setURL('https://www.eve-scout.com/thera/') // Link to the actual map
         .setColor(0xFFA500) // EVE Scout Orange
         .setThumbnail('https://www.eve-scout.com/images/eve-scout-logo.png')
-        .setDescription(`Found **${signatures.length}** signatures. *Newest 25 listed below.*`)
+        .setDescription(`Found **${signatures.length}** signatures.`)
         .setTimestamp()
         .setFooter({ text: 'o7 Fly Safe • Data via EVE Scout API' });
 
@@ -61,7 +61,7 @@ async function handleRoutes(interaction, systemName) {
                 `**Routes:** ${outLink} ↔ ${inLink}`,
                 `**Signatures:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
                 `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`,
-                `-------------------------------------------------------------------------`
+                `───────────────────────────────────────────────────`
             ].join('\n'),
             inline: true
         });
