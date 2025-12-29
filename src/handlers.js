@@ -1,9 +1,5 @@
 const commandLogic = require('./commandLogic');
 
-/**
- * Modern Handler: The "Switchboard"
- * Replaces the Go switch statement with a clean lookup.
- */
 async function routeInteractions(interaction) {
     // 1. Safety Guard
     if (!interaction.isChatInputCommand()) return;

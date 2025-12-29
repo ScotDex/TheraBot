@@ -1,4 +1,5 @@
 const api = require (`./api`)
+const { EmbedBuilder } = require('discord.js');
 
 async function handleHealth(interaction) {
     await interaction.deferReply();

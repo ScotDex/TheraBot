@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Step 4: Install only production dependencies
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 # Step 5: Copy the rest of your bot code
 COPY . .
