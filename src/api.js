@@ -12,11 +12,11 @@ async function checkAPIHealth() {
 }
 async function getSignatures(system = "") {
     try {
-        // Construct URL: if system is "thera", it adds the query param
+        
         const url = system ? `${API_BASE}?system_name=${system}` : API_BASE;
         
         const response = await axios.get(url);
-        return response.data; // This is your '[]Route' slice equivalent
+        return response.data; 
     } catch (err) {
         console.error("Fetch failed:", err.message);
         return [];

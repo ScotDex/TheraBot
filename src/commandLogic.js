@@ -34,23 +34,35 @@ async function handleRoutes(interaction, systemName) {
     const signatures = await api.getSignatures(systemName);
     
     if (!signatures || signatures.length === 0) {
-        return interaction.editReply("No active signatures found. Space is quiet...");
+        return interaction.editReply("🌑 **Space is quiet...** No active signatures found.");
     }
 
+    const titleSystem = systemName ? systemName.toUpperCase() : 'EVE SCOUT';
     const embed = new EmbedBuilder()
-        .setTitle(`🛰️ Live ${systemName || 'EVE Scout'} Connections`)
-        .setColor(0xFFA500)
-        .setDescription(`Found **${signatures.length}** active signatures. Showing newest 25.`);
+        .setTitle(`🛰️ Live ${titleSystem} Connections`)
+        .setURL('https://www.eve-scout.com/thera/') // Link to the actual map
+        .setColor(0xFFA500) // EVE Scout Orange
+        .setThumbnail('https://www.eve-scout.com/images/eve-scout-logo.png')
+        .setDescription(`Found **${signatures.length}** signatures. *Newest 25 listed below.*`)
+        .setTimestamp()
+        .setFooter({ text: 'o7 Fly Safe • Data via EVE Scout API' });
 
-    // Map through signatures and add fields (replaces Go's for loop)
     signatures.slice(0, 25).forEach(sig => {
-        const expiry = new Date(sig.expires_at);
-        const diffMins = Math.round((expiry - new Date()) / 60000);
+        // Convert ISO date to Unix Timestamp for Discord's dynamic timers
+        const unixExpiry = Math.floor(new Date(sig.expires_at).getTime() / 1000);
+        
+        // Add dotlan links to the system names for utility
+        const outLink = `[${sig.out_system_name}](https://evemaps.dotlan.net/system/${sig.out_system_name.replace(' ', '_')})`;
+        const inLink = `[${sig.in_system_name}](https://evemaps.dotlan.net/system/${sig.in_system_name.replace(' ', '_')})`;
 
         embed.addFields({
-            name: `${sig.wh_type}: ${sig.out_system_name} ↔ ${sig.in_system_name}`,
-            value: `**Sig:** \`${sig.in_signature}\` | **Expires:** ${diffMins}m | **Class:** ${sig.in_system_class}`,
-            inline: true
+            name: `🔹 ${sig.wh_type} | ${sig.out_system_name} ↔ ${sig.in_system_name}`,
+            value: [
+                `**Routes:** ${outLink} ↔ ${inLink}`,
+                `**Signatures:** \`${sig.out_signature}\` ↔ \`${sig.in_signature}\``,
+                `**Class:** \`${sig.in_system_class}\` | **Expires:** <t:${unixExpiry}:R>`
+            ].join('\n'),
+            inline: false // False makes it look much better on mobile
         });
     });
 
